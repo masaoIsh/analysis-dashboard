@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+
+{% block title %}Search Analysis - CBDC/Stablecoin Analysis{% endblock %}
+
+{% block content %}
+<div class="search-container">
+    <!-- Search Header -->
+    <div class="search-header">
+        <h1>Search Analysis</h1>
+        <p>Find CBDC/Stablecoin research and insights</p>
+    </div>
+    
+    <!-- Search Form -->
+    <form action="{{ url_for('search') }}" method="GET" class="search-form">
+        <div class="search-inputs">
+            <div class="search-field">
+                <div class="input-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input type="text" name="q" 
+                           placeholder="Search by title, description, or content..." 
+                           value="{{ query }}">
+                </div>
+            </div>
+            <div class="tag-filter">
+                <select name="tag">
+                    <option value="">All Tags</option>
+                    <option value="python" {{ 'selected' if tag == 'python' }}>Python</option>
+                    <option value="data-analysis" {{ 'selected' if tag == 'data-analysis' }}>Data Analysis</option>
+                    <option value="machine-learning" {{ 'selected' if tag == 'machine-learning' }}>Machine Learning</option>
+                    <option value="visualization" {{ 'selected' if tag == 'visualization' }}>Visualization</option>
+                    <option value="statistics" {{ 'selected' if tag == 'statistics' }}>Statistics</option>
+                    <option value="deep-learning" {{ 'selected' if tag == 'deep-learning' }}>Deep Learning</option>
+                    <option value="nlp" {{ 'selected' if tag == 'nlp' }}>NLP</option>
+                    <option value="computer-vision" {{ 'selected' if tag == 'computer-vision' }}>Computer Vision</option>
+                </select>
+            </div>
+            <button type="submit" class="search-btn">
+                <i class="fas fa-search"></i>
+                Search
+            </button>
+        </div>
+    </form>
+
+    <!-- Search Results -->
+    <div class="search-results">
+        {% if query or tag %}
+            {% if notebooks %}
+            <div class="results-header">
+                <div class="results-info">
+                    <h2>Search Results</h2>
+                    <span class="results-count">{{ notebooks|length }} notebooks found</span>
+                </div>
+                <div class="sort-buttons">
+                    <button type="button" class="sort-btn active" data-sort="recent">Most Recent</button>
+                    <button type="button" class="sort-btn" data-sort="popular">Most Popular</button>
+                    <button type="button" class="sort-btn" data-sort="title">Title A-Z</button>
+                </div>
+            </div>
+            
+            <div class="notebooks-grid" id="searchResults">
+                {% for notebook in notebooks %}
+                <div class="notebook-card" 
+                     data-title="{{ notebook.title.lower() }}" 
+                     data-views="{{ notebook.views }}" 
+                     data-date="{{ notebook.created_at.isoformat() }}">
+                    <a href="{{ url_for('view_notebook', notebook_id=notebook.id) }}" class="notebook-link">
+                        <div class="notebook-header">
+                            <div class="notebook-meta">
+                                <span class="author">by {{ notebook.author.username }}</span>
+                                <span class="views">{{ notebook.views }} views</span>
+                            </div>
+                        </div>
+                        
+                        <div class="notebook-content">
+                            <h3 class="notebook-title">
+                                {{ notebook.title }}
+                            </h3>
+                            <p class="notebook-description">
+                                {{ notebook.description[:120] }}{% if notebook.description|length > 120 %}...{% endif %}
+                            </p>
+                            
+                            {% if notebook.tags %}
+                            <div class="notebook-tags">
+                                {% for tag in notebook.tags.split(',') %}
+                                <span class="tag">{{ tag.strip() }}</span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="notebook-footer">
+                            <div class="notebook-date">
+                                <i class="fas fa-calendar"></i>
+                                {{ notebook.created_at.strftime('%b %d, %Y') }}
+                            </div>
+                                                    <button class="like-btn" onclick="event.stopPropagation(); likeNotebook({{ notebook.id }})">
+                            <i class="fas fa-heart"></i>
+                            {{ notebook.likes }}
+                        </button>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="empty-search">
+                <div class="empty-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>No notebooks found</h3>
+                <p>
+                    {% if query %}
+                    No notebooks match your search for "{{ query }}"
+                    {% elif tag %}
+                    No notebooks found with tag "{{ tag }}"
+                    {% endif %}
+                </p>
+                <div class="empty-actions">
+                    <a href="{{ url_for('search') }}" class="action-btn secondary">
+                        <i class="fas fa-search"></i>
+                        Try Different Search
+                    </a>
+                    <a href="{{ url_for('index') }}" class="action-btn primary">
+                        <i class="fas fa-home"></i>
+                        Browse All Notebooks
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+        {% else %}
+        <!-- Popular Tags -->
+        <div class="popular-tags">
+            <div class="section-header">
+                <h2>Popular Tags</h2>
+                <p>Browse notebooks by popular categories</p>
+            </div>
+            
+            <div class="tags-grid">
+                <a href="{{ url_for('search', tag='python') }}" class="tag-card">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </a>
+                <a href="{{ url_for('search', tag='data-analysis') }}" class="tag-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Data Analysis</span>
+                </a>
+                <a href="{{ url_for('search', tag='machine-learning') }}" class="tag-card">
+                    <i class="fas fa-brain"></i>
+                    <span>Machine Learning</span>
+                </a>
+                <a href="{{ url_for('search', tag='visualization') }}" class="tag-card">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Visualization</span>
+                </a>
+                <a href="{{ url_for('search', tag='statistics') }}" class="tag-card">
+                    <i class="fas fa-calculator"></i>
+                    <span>Statistics</span>
+                </a>
+                <a href="{{ url_for('search', tag='deep-learning') }}" class="tag-card">
+                    <i class="fas fa-network-wired"></i>
+                    <span>Deep Learning</span>
+                </a>
+                <a href="{{ url_for('search', tag='nlp') }}" class="tag-card">
+                    <i class="fas fa-language"></i>
+                    <span>NLP</span>
+                </a>
+                <a href="{{ url_for('search', tag='computer-vision') }}" class="tag-card">
+                    <i class="fas fa-eye"></i>
+                    <span>Computer Vision</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Start Exploring -->
+        <div class="start-exploring">
+            <div class="section-header">
+                <h2>Start Exploring</h2>
+                <p>Use the search bar above to find notebooks or browse by popular tags</p>
+            </div>
+            
+            <div class="explore-content">
+                <div class="explore-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <a href="{{ url_for('index') }}" class="explore-btn">
+                    <i class="fas fa-home"></i>
+                    Go to Homepage
+                </a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Sorting functionality
+    const sortButtons = document.querySelectorAll('[data-sort]');
+    const searchResults = document.getElementById('searchResults');
+    
+    if (searchResults) {
+        sortButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const sortType = this.getAttribute('data-sort');
+                
+                // Update active button
+                sortButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Sort notebooks
+                sortNotebooks(sortType);
+            });
+        });
+    }
+});
+
+function sortNotebooks(sortType) {
+    const container = document.getElementById('searchResults');
+    const notebooks = Array.from(container.children);
+    
+    notebooks.sort((a, b) => {
+        switch (sortType) {
+            case 'recent':
+                return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
+            case 'popular':
+                return parseInt(b.getAttribute('data-views')) - parseInt(a.getAttribute('data-views'));
+            case 'title':
+                return a.getAttribute('data-title').localeCompare(b.getAttribute('data-title'));
+            default:
+                return 0;
+        }
+    });
+    
+    // Re-append sorted notebooks
+    notebooks.forEach(notebook => container.appendChild(notebook));
+}
+
+function likeNotebook(notebookId) {
+    // TODO: Implement like functionality
+    alert('Like functionality coming soon!');
+}
+</script>
+{% endblock %}
