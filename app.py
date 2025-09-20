@@ -38,6 +38,8 @@ class Notebook(db.Model):
     description = db.Column(db.Text)
     filename = db.Column(db.String(200), nullable=False)
     file_path = db.Column(db.String(500), nullable=False)
+    external_url = db.Column(db.String(500))  # For external Colab links
+    author_name = db.Column(db.String(100))  # Person's name for display
     tags = db.Column(db.String(500))  # Comma-separated tags
     is_public = db.Column(db.Boolean, default=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -117,6 +119,10 @@ def view_notebook(notebook_id):
     if not notebook.is_public and (not current_user.is_authenticated or current_user.id != notebook.user_id):
         flash('Access denied', 'error')
         return redirect(url_for('index'))
+    
+    # If it's an external notebook, redirect to the Colab link
+    if notebook.external_url:
+        return redirect(notebook.external_url)
     
     # Increment view count
     notebook.views += 1
@@ -219,11 +225,12 @@ def api_notebooks():
         'id': nb.id,
         'title': nb.title,
         'description': nb.description,
-        'author': nb.author.username,
+        'author': nb.author_name if nb.author_name else nb.author.username,
         'tags': nb.tags.split(',') if nb.tags else [],
         'views': nb.views,
         'likes': nb.likes,
-        'created_at': nb.created_at.isoformat()
+        'created_at': nb.created_at.isoformat(),
+        'external_url': nb.external_url
     } for nb in notebooks])
 
 def allowed_file(filename):

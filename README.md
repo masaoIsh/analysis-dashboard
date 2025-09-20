@@ -1,10 +1,10 @@
-# CBDC/Stablecoin Analysis Dashboard
+# Group C Token Analysis Dashboard
 
-A modern web application for sharing and analyzing Jupyter notebooks focused on Central Bank Digital Currencies (CBDCs) and Stablecoin research.
+A modern web application for sharing and analyzing Jupyter notebooks focused on cryptocurrency and token research.
 
 ## 🚀 Features
 
-- **Interactive Dashboard**: Real-time charts and metrics for CBDC/Stablecoin markets
+- **Interactive Dashboard**: Real-time charts and metrics for token markets
 - **Notebook Sharing**: Upload and share Jupyter notebooks, Google Colab files, and Python scripts
 - **User Authentication**: Secure user registration and login system
 - **Search & Discovery**: Find analysis notebooks by tags and content

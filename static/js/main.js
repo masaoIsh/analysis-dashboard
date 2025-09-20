@@ -259,15 +259,18 @@ function createMarketCapChart() {
     new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ['USDT', 'USDC', 'BUSD', 'DAI', 'Other'],
+            labels: ['USDT', 'USDC', 'USDP', 'DAI', 'FRAX', 'LINK', 'DOGE', 'BNB'],
             datasets: [{
-                data: [45, 25, 15, 10, 5],
+                data: [35, 20, 8, 12, 6, 8, 5, 6],
                 backgroundColor: [
-                    '#26A69A',
-                    '#2196F3',
-                    '#FFC107',
-                    '#4CAF50',
-                    '#9E9E9E'
+                    '#26A69A',  // USDT - Teal
+                    '#2196F3',  // USDC - Blue
+                    '#FF9800',  // USDP - Orange
+                    '#4CAF50',  // DAI - Green
+                    '#9C27B0',  // FRAX - Purple
+                    '#FF5722',  // LINK - Deep Orange
+                    '#FFC107',  // DOGE - Amber
+                    '#607D8B'   // BNB - Blue Grey
                 ],
                 borderWidth: 0
             }]
@@ -335,15 +338,19 @@ function createStablecoinChart() {
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['USDT', 'USDC', 'BUSD', 'DAI'],
+            labels: ['USDT', 'USDC', 'USDP', 'DAI', 'FRAX', 'LINK', 'DOGE', 'BNB'],
             datasets: [{
                 label: 'Market Cap ($B)',
-                data: [95.2, 52.8, 15.6, 8.4],
+                data: [95.2, 52.8, 8.4, 12.6, 6.2, 15.8, 18.5, 25.3],
                 backgroundColor: [
-                    '#26A69A',
-                    '#2196F3',
-                    '#FFC107',
-                    '#4CAF50'
+                    '#26A69A',  // USDT - Teal
+                    '#2196F3',  // USDC - Blue
+                    '#FF9800',  // USDP - Orange
+                    '#4CAF50',  // DAI - Green
+                    '#9C27B0',  // FRAX - Purple
+                    '#FF5722',  // LINK - Deep Orange
+                    '#FFC107',  // DOGE - Amber
+                    '#607D8B'   // BNB - Blue Grey
                 ],
                 borderRadius: 8
             }]

@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}CBDC/Stablecoin Analysis Dashboard{% endblock %}
+{% block title %}Group C Token Analysis Dashboard{% endblock %}
 
 {% block content %}
 <div class="dashboard-header">
     <div class="header-content">
         <div class="header-info">
-            <h1>CBDC/Stablecoin Analysis</h1>
-            <p>Real-time insights into Central Bank Digital Currencies and Stablecoin markets</p>
+            <h1>Group C Token Analysis</h1>
+            <p>Real-time insights into cryptocurrency and token markets</p>
         </div>
         <div class="header-actions">
             <div class="time-filter">
@@ -27,10 +27,10 @@
     <div class="metrics-grid">
         <div class="metric-card primary">
             <div class="metric-header">
-                <h3>Total Market Cap</h3>
+                <h3>Total Token Market Cap</h3>
                 <i class="fas fa-chart-line"></i>
             </div>
-            <div class="metric-value">$2.4T</div>
+            <div class="metric-value">$3.1T</div>
             <div class="metric-change positive">
                 <i class="fas fa-arrow-up"></i>
                 +5.2%
@@ -39,10 +39,10 @@
         
         <div class="metric-card">
             <div class="metric-header">
-                <h3>CBDC Projects</h3>
+                <h3>Number of Token Types</h3>
                 <i class="fas fa-building"></i>
             </div>
-            <div class="metric-value">87</div>
+            <div class="metric-value">15,200</div>
             <div class="metric-change positive">
                 <i class="fas fa-arrow-up"></i>
                 +3
@@ -51,10 +51,10 @@
         
         <div class="metric-card">
             <div class="metric-header">
-                <h3>Stablecoin Volume</h3>
+                <h3>Daily Token Trading Volume</h3>
                 <i class="fas fa-exchange-alt"></i>
             </div>
-            <div class="metric-value">$89.2B</div>
+            <div class="metric-value">$125.6B</div>
             <div class="metric-change negative">
                 <i class="fas fa-arrow-down"></i>
                 -2.1%
@@ -63,10 +63,10 @@
         
         <div class="metric-card">
             <div class="metric-header">
-                <h3>Active Users</h3>
+                <h3>Active Token Wallets</h3>
                 <i class="fas fa-users"></i>
             </div>
-            <div class="metric-value">12.4M</div>
+            <div class="metric-value">28.9M</div>
             <div class="metric-change positive">
                 <i class="fas fa-arrow-up"></i>
                 +8.7%
@@ -92,10 +92,10 @@
             </div>
         </div>
         
-        <!-- CBDC Adoption Timeline -->
+        <!-- Token Adoption Timeline -->
         <div class="chart-card">
             <div class="chart-header">
-                <h3>CBDC Adoption Timeline</h3>
+                <h3>Token Adoption Timeline</h3>
                 <i class="fas fa-calendar-alt"></i>
             </div>
             <div class="chart-container">
@@ -103,10 +103,10 @@
             </div>
         </div>
         
-        <!-- Stablecoin Performance -->
+        <!-- Token Performance -->
         <div class="chart-card">
             <div class="chart-header">
-                <h3>Top Stablecoins</h3>
+                <h3>Top Tokens</h3>
                 <i class="fas fa-coins"></i>
             </div>
             <div class="chart-container">
@@ -154,7 +154,7 @@
             <i class="fas fa-chart-line"></i>
         </div>
         <h3>No analysis yet</h3>
-        <p>Be the first to share CBDC/Stablecoin analysis</p>
+        <p>Be the first to share token analysis</p>
         {% if current_user.is_authenticated %}
         <a href="{{ url_for('upload_notebook') }}" class="upload-link">Share Analysis</a>
         {% else %}

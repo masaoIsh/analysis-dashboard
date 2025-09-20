@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Vercel-compatible Flask application for CBDC/Stablecoin Analysis Dashboard
+Vercel-compatible Flask application for Group C Token Analysis Dashboard
 This version serves the full dashboard HTML for Vercel deployment
 """
 
@@ -48,7 +48,7 @@ DASHBOARD_HTML = '''
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBDC/Stablecoin Analysis Dashboard</title>
+    <title>Group C Token Analysis Dashboard</title>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -472,7 +472,7 @@ DASHBOARD_HTML = '''
             <div class="sidebar-header">
                 <a href="/" class="logo">
                     <i class="fas fa-coins"></i>
-                    <span>CBDC/Stablecoin Analysis</span>
+                    <span>Group C Token Analysis</span>
                 </a>
             </div>
             <nav class="sidebar-nav">
@@ -498,8 +498,8 @@ DASHBOARD_HTML = '''
                 <div class="dashboard-header">
                     <div class="header-content">
                         <div class="header-info">
-                            <h1>CBDC/Stablecoin Analysis</h1>
-                            <p>Real-time insights into Central Bank Digital Currencies and Stablecoin markets</p>
+                            <h1>Group C Token Analysis</h1>
+                            <p>Real-time insights into cryptocurrency and token markets</p>
                         </div>
                         <div class="header-actions">
                             <div class="time-filter">
@@ -519,10 +519,10 @@ DASHBOARD_HTML = '''
                     <div class="metrics-grid">
                         <div class="metric-card primary">
                             <div class="metric-header">
-                                <h3>Total Market Cap</h3>
+                                <h3>Total Token Market Cap</h3>
                                 <i class="fas fa-chart-line"></i>
                             </div>
-                            <div class="metric-value">$2.4T</div>
+                            <div class="metric-value">$3.1T</div>
                             <div class="metric-change positive">
                                 <i class="fas fa-arrow-up"></i>
                                 +5.2%
@@ -531,10 +531,10 @@ DASHBOARD_HTML = '''
                         
                         <div class="metric-card">
                             <div class="metric-header">
-                                <h3>CBDC Projects</h3>
+                                <h3>Number of Token Types</h3>
                                 <i class="fas fa-building"></i>
                             </div>
-                            <div class="metric-value">87</div>
+                            <div class="metric-value">15,200</div>
                             <div class="metric-change positive">
                                 <i class="fas fa-arrow-up"></i>
                                 +3
@@ -543,10 +543,10 @@ DASHBOARD_HTML = '''
                         
                         <div class="metric-card">
                             <div class="metric-header">
-                                <h3>Stablecoin Volume</h3>
+                                <h3>Daily Token Trading Volume</h3>
                                 <i class="fas fa-exchange-alt"></i>
                             </div>
-                            <div class="metric-value">$89.2B</div>
+                            <div class="metric-value">$125.6B</div>
                             <div class="metric-change negative">
                                 <i class="fas fa-arrow-down"></i>
                                 -2.1%
@@ -555,10 +555,10 @@ DASHBOARD_HTML = '''
                         
                         <div class="metric-card">
                             <div class="metric-header">
-                                <h3>Active Users</h3>
+                                <h3>Active Token Wallets</h3>
                                 <i class="fas fa-users"></i>
                             </div>
-                            <div class="metric-value">12.4M</div>
+                            <div class="metric-value">28.9M</div>
                             <div class="metric-change positive">
                                 <i class="fas fa-arrow-up"></i>
                                 +8.7%
@@ -711,7 +711,7 @@ DASHBOARD_HTML = '''
                 data: {
                     labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
                     datasets: [{
-                        label: 'CBDC Projects',
+                        label: 'Token Types',
                         data: [12, 25, 45, 67, 78, 87],
                         borderColor: '#2196F3',
                         backgroundColor: 'rgba(33, 150, 243, 0.1)',
@@ -813,7 +813,7 @@ def index():
 
 @app.route('/api/health')
 def health_check():
-    return jsonify({'status': 'healthy', 'message': 'CBDC/Stablecoin Analysis Dashboard is running on Vercel!'})
+    return jsonify({'status': 'healthy', 'message': 'Group C Token Analysis Dashboard is running on Vercel!'})
 
 @app.route('/upload')
 def upload():
