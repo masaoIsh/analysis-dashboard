@@ -81,6 +81,16 @@ MOCK_NOTEBOOKS = [
         'views': 1200,
         'likes': 95,
         'external_url': 'https://colab.research.google.com/drive/1gO45Qtk_Js3LV2BcKTHwEli36D_rKkVo'
+    },
+    {
+        'id': 8,
+        'title': 'Ngoc - DAI Analysis',
+        'description': 'Analysis of DAI stablecoin by Ngoc',
+        'author': {'username': 'Ngoc'},
+        'created_at': '2023-12-25',
+        'views': 1050,
+        'likes': 88,
+        'external_url': 'https://colab.research.google.com/drive/1OiGcsfKAqWxppyrtdWjYHRRqa-xYVMfs#scrollTo=ucp0YmYX5LG0'
     }
 ]
 
