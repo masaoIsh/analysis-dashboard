@@ -86,20 +86,21 @@ The application uses the following default settings:
 ## 📊 Dashboard Features
 
 ### Key Metrics
-- Total Market Cap
-- CBDC Projects Count
-- Stablecoin Volume
-- Active Users
+- Total Token Market Cap: $3.1T
+- Number of Token Types: 15,200
+- Daily Token Trading Volume: $125.6B
+- Active Token Wallets: 28.9M
 
 ### Interactive Charts
 - Market Cap Distribution (Doughnut Chart)
-- CBDC Adoption Timeline (Line Chart)
-- Top Stablecoins Performance (Bar Chart)
+- Token Adoption Timeline (Line Chart)
+- Top Tokens Performance (Bar Chart)
 
 ### Analysis Notebooks
 - Browse latest research and analysis
 - Search by tags and content
 - View notebook outputs and visualizations
+- External links to Google Colab notebooks
 
 ## 👥 User Features
 
@@ -168,7 +169,7 @@ If you encounter any issues or have questions:
 
 ## 🔮 Future Enhancements
 
-- Real-time data feeds for CBDC/Stablecoin metrics
+- Real-time data feeds for token metrics
 - Advanced charting and analytics tools
 - Collaborative editing features
 - API endpoints for external integrations
@@ -178,4 +179,4 @@ If you encounter any issues or have questions:
 
 ---
 
-**Built with ❤️ for the CBDC and Stablecoin research community**
+**Built with ❤️ for the Group C Token Analysis research community**
