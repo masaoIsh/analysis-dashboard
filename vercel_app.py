@@ -17,7 +17,7 @@ MOCK_NOTEBOOKS = [
         'title': 'Yuri - USDT, USDC, DAI Analysis',
         'description': 'Comprehensive analysis of USDT, USDC, and DAI stablecoins by Yuri',
         'author': {'username': 'Yuri'},
-        'created_at': '2024-01-15',
+        'created_at': '2025-09-20',
         'views': 1250,
         'likes': 89,
         'external_url': 'https://colab.research.google.com/drive/1TEFd23UYvewQqxtjuyXoLJbmgvUktyiM'
@@ -27,7 +27,7 @@ MOCK_NOTEBOOKS = [
         'title': 'Yui - USDP Analysis',
         'description': 'Analysis of USDP stablecoin by Yui',
         'author': {'username': 'Yui'},
-        'created_at': '2024-01-10',
+        'created_at': '2025-09-20',
         'views': 890,
         'likes': 67,
         'external_url': 'https://colab.research.google.com/drive/12EhIh1ADZ_lkNN99A1Ab-zAsojfDoNv4'
@@ -37,7 +37,7 @@ MOCK_NOTEBOOKS = [
         'title': 'Yasu - LINK Analysis',
         'description': 'Chainlink (LINK) cryptocurrency analysis by Yasu',
         'author': {'username': 'Yasu'},
-        'created_at': '2024-01-08',
+        'created_at': '2025-09-20',
         'views': 1100,
         'likes': 92,
         'external_url': 'https://colab.research.google.com/drive/1lFZXUOuDF6mWPR9DP05SRB5tWHrslYfD'
@@ -47,7 +47,7 @@ MOCK_NOTEBOOKS = [
         'title': 'Walla - FRAX Analysis',
         'description': 'Analysis of FRAX stablecoin by Walla',
         'author': {'username': 'Walla'},
-        'created_at': '2024-01-05',
+        'created_at': '2025-09-20',
         'views': 750,
         'likes': 45,
         'external_url': 'https://colab.research.google.com/drive/1E_BdsAysHUOWzFlUAKdXhrcn18dTvUol'
@@ -57,7 +57,7 @@ MOCK_NOTEBOOKS = [
         'title': 'Rin - Dogecoin Analysis',
         'description': 'Dogecoin (DOGE) cryptocurrency analysis by Rin',
         'author': {'username': 'Rin'},
-        'created_at': '2024-01-03',
+        'created_at': '2025-09-20',
         'views': 980,
         'likes': 78,
         'external_url': 'https://colab.research.google.com/drive/1FeNOMLoU-h0F_aqclgz5K7B-sutXxTEJ'
@@ -67,7 +67,7 @@ MOCK_NOTEBOOKS = [
         'title': 'Ren - Binance Analysis',
         'description': 'Binance Coin (BNB) cryptocurrency analysis by Ren',
         'author': {'username': 'Ren'},
-        'created_at': '2024-01-01',
+        'created_at': '2025-09-20',
         'views': 1100,
         'likes': 85,
         'external_url': 'https://colab.research.google.com/drive/1cu6v0-eIbRpSHDU75_eD0soC3zcouVLC'
@@ -77,7 +77,7 @@ MOCK_NOTEBOOKS = [
         'title': 'Masao - LINK Analysis',
         'description': 'Chainlink (LINK) cryptocurrency analysis by Masao',
         'author': {'username': 'Masao'},
-        'created_at': '2023-12-28',
+        'created_at': '2025-09-20',
         'views': 1200,
         'likes': 95,
         'external_url': 'https://colab.research.google.com/drive/1gO45Qtk_Js3LV2BcKTHwEli36D_rKkVo'
@@ -87,7 +87,7 @@ MOCK_NOTEBOOKS = [
         'title': 'Ngoc - DAI Analysis',
         'description': 'Analysis of DAI stablecoin by Ngoc',
         'author': {'username': 'Ngoc'},
-        'created_at': '2023-12-25',
+        'created_at': '2025-09-20',
         'views': 1050,
         'likes': 88,
         'external_url': 'https://colab.research.google.com/drive/1OiGcsfKAqWxppyrtdWjYHRRqa-xYVMfs#scrollTo=ucp0YmYX5LG0'
@@ -664,7 +664,7 @@ DASHBOARD_HTML = '''
                 <!-- Analysis Notebooks -->
                 <div class="analysis-section">
                     <div class="section-header">
-                        <h2>Latest Analysis</h2>
+                        <h2>Individual Analysis</h2>
                         <div class="section-actions">
                             <a href="/upload" class="upload-btn">
                                 <i class="fas fa-plus"></i>
