@@ -14,30 +14,73 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key')
 MOCK_NOTEBOOKS = [
     {
         'id': 1,
-        'title': 'CBDC Market Analysis 2024',
-        'description': 'Comprehensive analysis of Central Bank Digital Currency adoption trends',
-        'author': {'username': 'Analyst1'},
+        'title': 'Yuri - USDT, USDC, DAI Analysis',
+        'description': 'Comprehensive analysis of USDT, USDC, and DAI stablecoins by Yuri',
+        'author': {'username': 'Yuri'},
         'created_at': '2024-01-15',
         'views': 1250,
-        'likes': 89
+        'likes': 89,
+        'external_url': 'https://colab.research.google.com/drive/1TEFd23UYvewQqxtjuyXoLJbmgvUktyiM'
     },
     {
         'id': 2,
-        'title': 'Stablecoin Regulation Impact',
-        'description': 'Analysis of regulatory changes on stablecoin markets and DeFi protocols',
-        'author': {'username': 'RegExpert'},
+        'title': 'Yui - USDP Analysis',
+        'description': 'Analysis of USDP stablecoin by Yui',
+        'author': {'username': 'Yui'},
         'created_at': '2024-01-10',
         'views': 890,
-        'likes': 67
+        'likes': 67,
+        'external_url': 'https://colab.research.google.com/drive/12EhIh1ADZ_lkNN99A1Ab-zAsojfDoNv4'
     },
     {
         'id': 3,
-        'title': 'Digital Yuan Implementation',
-        'description': 'Technical deep-dive into China\'s CBDC infrastructure and adoption',
-        'author': {'username': 'TechAnalyst'},
+        'title': 'Yasu - LINK Analysis',
+        'description': 'Chainlink (LINK) cryptocurrency analysis by Yasu',
+        'author': {'username': 'Yasu'},
         'created_at': '2024-01-08',
         'views': 1100,
-        'likes': 92
+        'likes': 92,
+        'external_url': 'https://colab.research.google.com/drive/1lFZXUOuDF6mWPR9DP05SRB5tWHrslYfD'
+    },
+    {
+        'id': 4,
+        'title': 'Walla - FRAX Analysis',
+        'description': 'Analysis of FRAX stablecoin by Walla',
+        'author': {'username': 'Walla'},
+        'created_at': '2024-01-05',
+        'views': 750,
+        'likes': 45,
+        'external_url': 'https://colab.research.google.com/drive/1E_BdsAysHUOWzFlUAKdXhrcn18dTvUol'
+    },
+    {
+        'id': 5,
+        'title': 'Rin - Dogecoin Analysis',
+        'description': 'Dogecoin (DOGE) cryptocurrency analysis by Rin',
+        'author': {'username': 'Rin'},
+        'created_at': '2024-01-03',
+        'views': 980,
+        'likes': 78,
+        'external_url': 'https://colab.research.google.com/drive/1FeNOMLoU-h0F_aqclgz5K7B-sutXxTEJ'
+    },
+    {
+        'id': 6,
+        'title': 'Ren - Binance Analysis',
+        'description': 'Binance Coin (BNB) cryptocurrency analysis by Ren',
+        'author': {'username': 'Ren'},
+        'created_at': '2024-01-01',
+        'views': 1100,
+        'likes': 85,
+        'external_url': 'https://colab.research.google.com/drive/1cu6v0-eIbRpSHDU75_eD0soC3zcouVLC'
+    },
+    {
+        'id': 7,
+        'title': 'Masao - LINK Analysis',
+        'description': 'Chainlink (LINK) cryptocurrency analysis by Masao',
+        'author': {'username': 'Masao'},
+        'created_at': '2023-12-28',
+        'views': 1200,
+        'likes': 95,
+        'external_url': 'https://colab.research.google.com/drive/1gO45Qtk_Js3LV2BcKTHwEli36D_rKkVo'
     }
 ]
 
@@ -622,7 +665,7 @@ DASHBOARD_HTML = '''
                     
                     <div class="notebooks-grid">
                         {% for notebook in notebooks %}
-                        <div class="notebook-card">
+                        <div class="notebook-card" onclick="openNotebook('{{ notebook.external_url }}')" style="cursor: pointer;">
                             <div class="notebook-header">
                                 <div>
                                     <h3 class="notebook-title">{{ notebook.title }}</h3>
@@ -801,6 +844,13 @@ DASHBOARD_HTML = '''
                     console.log('Switching to:', this.getAttribute('data-chart'));
                 });
             });
+        }
+        
+        // Function to open external notebook links
+        function openNotebook(url) {
+            if (url) {
+                window.open(url, '_blank');
+            }
         }
     </script>
 </body>
